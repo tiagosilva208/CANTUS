@@ -1,21 +1,57 @@
 """
-Project: Music Transcription & Visualization Tool (Skeleton)
+Project: Music Analysis, Visualization & Transcription Tool
 
-Goal:
-- Build a Python GUI app to analyze and visualize songs.
-- Start with a simple Tkinter interface: menu bar, toolbar, text area, and status bar.
-- Future features:
-    - Divide songs into sections (intro, verse, chorus, bridge, etc.)
-    - Compare similar sections (e.g., repeated chorus)
-    - Display basic 3D/Fourier visualization of audio
-    - Export simplified MIDI (pitch + duration) for multiple voices
-    - Play/pause and preview functionality
-    - Possibly integrate fast C modules for heavy computations
+Purpose:
+- Create a desktop application to analyze, visualize, and transcribe songs in an intuitive, interactive way.
+- Focus on understanding song structure, patterns, and relationships between sections.
+- Designed for music creators, transcribers, or enthusiasts to explore songs more deeply.
 
-Current scope:
-- Focus on GUI skeleton and layout.
-- Menu items, toolbar buttons, and placeholders are implemented but not functional yet.
-- This skeleton will serve as the foundation for adding real features later.
+Inspiration & Concept:
+- Divide songs into sections (intro, verse, chorus, bridge, outro, etc.).
+- Automatically detect repeated or similar sections and allow comparisons.
+- Visualize audio data using 2D/3D representations and Fourier transforms.
+- Offer a simplified but usable MIDI export (pitch + duration for multiple instruments/voices).
+- Provide a modular interface that could later integrate real-time playback, previews, and even DLC-style “visualization modes.”
+
+Core GUI Skeleton (Current Implementation):
+- Python + Tkinter desktop application.
+- Window with:
+    - Menu bar: File (New, Open, Save, Exit), Edit (Undo, Redo), Help (About)
+    - Toolbar: basic buttons for New, Open, Save
+    - Central text area: placeholder for song info, sections, or MIDI data
+    - Status bar: feedback for actions and messages
+- Placeholder functions for menu items and toolbar buttons (non-functional currently)
+- Modular code structure for easy addition of future features
+
+Future Features / Planned Expansions:
+1. **Song Section Handling:**
+    - Identify, label, and display song sections
+    - Compare similar or repeated sections visually
+    - Allow selection, editing, and exporting of individual sections
+2. **Visualization:**
+    - Use Fourier transform or other audio analysis for waveform/frequency visualizations
+    - Optional 3D representations of songs for deeper analysis
+    - Highlight repeated motifs or patterns in visual form
+3. **MIDI Export:**
+    - Simplified output (pitch + duration) for multiple staves/instruments
+    - Compatible with software like MuseScore
+    - Possibly allow user to select which sections to export
+4. **Playback & Preview:**
+    - Play, pause, and preview specific sections
+    - Future support for multiple instrument voices
+5. **Performance & Scalability:**
+    - Use Python for GUI and control logic
+    - Integrate C modules for heavy computations or signal processing
+6. **Modular Expansion:**
+    - Future “DLC-like modes” or plugins for different visualizations, filters, or analysis types
+
+Copilot Guidance:
+- Generate GUI components (frames, buttons, menus, toolbars, status bars)
+- Suggest code for displaying and managing song sections
+- Help scaffold MIDI export functions, placeholder logic for audio analysis
+- Create interactive placeholders for play/pause/preview
+- Propose data structures for song sections, tracks, and visualizations
+- Maintain a clean, modular layout to facilitate future feature integration
 """
 
 fimport tkinter as tk
