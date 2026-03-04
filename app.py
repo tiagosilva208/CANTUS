@@ -1,4 +1,4 @@
-Project: Music Analysis, Visualization & Transcription Tool
+"""Project: Music Analysis, Visualization & Transcription Tool
 
 Purpose:
 - Create a desktop application to analyze, visualize, and transcribe songs in an intuitive, interactive way.
