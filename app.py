@@ -1,3 +1,23 @@
+"""
+Project: Music Transcription & Visualization Tool (Skeleton)
+
+Goal:
+- Build a Python GUI app to analyze and visualize songs.
+- Start with a simple Tkinter interface: menu bar, toolbar, text area, and status bar.
+- Future features:
+    - Divide songs into sections (intro, verse, chorus, bridge, etc.)
+    - Compare similar sections (e.g., repeated chorus)
+    - Display basic 3D/Fourier visualization of audio
+    - Export simplified MIDI (pitch + duration) for multiple voices
+    - Play/pause and preview functionality
+    - Possibly integrate fast C modules for heavy computations
+
+Current scope:
+- Focus on GUI skeleton and layout.
+- Menu items, toolbar buttons, and placeholders are implemented but not functional yet.
+- This skeleton will serve as the foundation for adding real features later.
+"""
+
 fimport tkinter as tk
 from tkinter import Menu, messagebox, scrolledtext
 
