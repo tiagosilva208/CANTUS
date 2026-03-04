@@ -1,16 +1,21 @@
-import tkinter as tk
 from handlers import *
 
-class Application(tk.Frame):
-    def __init__(self, master=None):
-        super().__init__(master)
-        self.master = master
-        self.create_widgets()
+# GUI setup code starts here
+window = Tk()
 
-    def create_widgets(self):
-        # GUI setup code goes here
-        pass
+# Main window configuration
+window.title("My Application")
+window.geometry("800x600")
 
-root = tk.Tk()
-app = Application(master=root)
-app.mainloop()
+# Menu bar creation
+menu_bar = Menu(window)
+
+# Toolbar setup
+toolbar = Frame(window)
+
+# Layout configuration
+layout = Frame(window)
+layout.pack(fill=BOTH, expand=True)
+
+# Start the main event loop
+window.mainloop()
