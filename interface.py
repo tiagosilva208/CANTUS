@@ -53,9 +53,10 @@ Copilot Guidance:
 - Maintain a clean, modular layout to facilitate future feature integration
 """
 
+from signal import Handlers
 import tkinter as tk
 from tkinter import Menu, scrolledtext
-import Handlers
+import handlers
 
 # ===============================
 # Main window
@@ -76,11 +77,11 @@ menu_bar.config(bg="#333333", fg="white")  # Dark background for menu bar
 # File menu
 file_menu = Menu(menu_bar, tearoff=0)
 file_menu.config(bg="#333333", fg="white")  # Dark background for file menu
-file_menu.add_command(label="New", command=lambda: Handlers.new_file(text_area, status_bar))
-file_menu.add_command(label="Open", command=lambda: Handlers.open_file(status_bar))
-file_menu.add_command(label="Save", command=lambda: Handlers.save_file(status_bar))
-file_menu.add_command(label="Import MIDI", command=lambda: Handlers.import_midi(status_bar))
-file_menu.add_command(label="Export MIDI", command=lambda: Handlers.export_midi(status_bar))
+file_menu.add_command(label="New", command=lambda: handlers.new_file(text_area, status_bar))
+file_menu.add_command(label="Open", command=lambda: handlers.open_file(status_bar))
+file_menu.add_command(label="Save", command=lambda: handlers.save_file(status_bar))
+file_menu.add_command(label="Import MIDI", command=lambda: handlers.import_midi(status_bar))
+file_menu.add_command(label="Export MIDI", command=lambda: handlers.export_midi(status_bar))
 file_menu.add_separator()
 file_menu.add_command(label="Exit", command=root.quit)
 menu_bar.add_cascade(label="File", menu=file_menu)
@@ -95,36 +96,36 @@ menu_bar.add_cascade(label="Edit", menu=edit_menu)
 # MIDI menu
 midi_menu = Menu(menu_bar, tearoff=0)
 midi_menu.config(bg="#333333", fg="white")  # Dark background for MIDI menu
-midi_menu.add_command(label="Add MIDI Channel", command=lambda: Handlers.add_midi_channel(status_bar))
-midi_menu.add_command(label="List Channels", command=lambda: Handlers.list_midi_channels(status_bar))
+midi_menu.add_command(label="Add MIDI Channel", command=lambda: handlers.add_midi_channel(status_bar))
+midi_menu.add_command(label="List Channels", command=lambda: handlers.list_midi_channels(status_bar))
 menu_bar.add_cascade(label="MIDI", menu=midi_menu)
 
 # Sections menu
 sections_menu = Menu(menu_bar, tearoff=0)
 sections_menu.config(bg="#333333", fg="white")  # Dark background for sections menu
-sections_menu.add_command(label="Add Section", command=lambda: Handlers.add_section(status_bar))
-sections_menu.add_command(label="Edit Section", command=lambda: Handlers.edit_section(status_bar))
+sections_menu.add_command(label="Add Section", command=lambda: handlers.add_section(status_bar))
+sections_menu.add_command(label="Edit Section", command=lambda: handlers.edit_section(status_bar))
 sections_menu.add_separator()
-sections_menu.add_command(label="Merge Section", command=lambda: Handlers.merge_section(status_bar))
-sections_menu.add_command(label="Split Section", command=lambda: Handlers.split_section(status_bar))
+sections_menu.add_command(label="Merge Section", command=lambda: handlers.merge_section(status_bar))
+sections_menu.add_command(label="Split Section", command=lambda: handlers.split_section(status_bar))
 sections_menu.add_separator()
-sections_menu.add_command(label="Compare Sections", command=lambda: Handlers.compare_sections(status_bar))
-sections_menu.add_command(label="Find Repeats", command=lambda: Handlers.find_repeats(status_bar))
+sections_menu.add_command(label="Compare Sections", command=lambda: handlers.compare_sections(status_bar))
+sections_menu.add_command(label="Find Repeats", command=lambda: handlers.find_repeats(status_bar))
 menu_bar.add_cascade(label="Sections", menu=sections_menu)
 
 # Tools menu
 tools_menu = Menu(menu_bar, tearoff=0)
 tools_menu.config(bg="#333333", fg="white")  # Dark background for tools menu
-tools_menu.add_command(label="Show Piano", command=lambda: Handlers.show_piano(status_bar))
-tools_menu.add_command(label="Overlay", command=lambda: Handlers.overlay(status_bar))
-tools_menu.add_command(label="Try Note Mode", command=lambda: Handlers.try_note_mode(status_bar))
-tools_menu.add_command(label="Analyze", command=lambda: Handlers.analyze(status_bar))
+tools_menu.add_command(label="Show Piano", command=lambda: handlers.show_piano(status_bar))
+tools_menu.add_command(label="Overlay", command=lambda: handlers.overlay(status_bar))
+tools_menu.add_command(label="Try Note Mode", command=lambda: handlers.try_note_mode(status_bar))
+tools_menu.add_command(label="Analyze", command=lambda: handlers.analyze(status_bar))
 menu_bar.add_cascade(label="Tools", menu=tools_menu)
 
 # Help menu
 help_menu = Menu(menu_bar, tearoff=0)
 help_menu.config(bg="#333333", fg="white")  # Dark background for help menu
-help_menu.add_command(label="About", command=lambda: Handlers.show_about(status_bar))
+help_menu.add_command(label="About", command=lambda: handlers.show_about(status_bar))
 menu_bar.add_cascade(label="Help", menu=help_menu)
 
 root.config(menu=menu_bar)
@@ -140,7 +141,7 @@ btn_export = tk.Button(toolbar, text="Export MIDI", command=lambda: Handlers.exp
 btn_play = tk.Button(toolbar, text="►", command=lambda: Handlers.play(status_bar), bg="#555555", fg="#ffffff", activebackground="#3505ba", activeforeground="#ffffff", font=("Helvetica", 10, "bold")).pack(side=tk.LEFT, padx=1, pady=1)
 btn_pause = tk.Button(toolbar, text="❚❚", command=lambda: Handlers.pause(status_bar), bg="#555555", fg="#ffffff", activebackground="#3505ba", activeforeground="#ffffff", font=("Helvetica", 10, "bold")).pack(side=tk.LEFT, padx=1, pady=1)
 btn_stop = tk.Button(toolbar, text="■", command=lambda: Handlers.stop(status_bar), bg="#555555", fg="#ffffff", activebackground="#3505ba", activeforeground="#ffffff", font=("Helvetica", 10, "bold")).pack(side=tk.LEFT, padx=1, pady=1)
-btn_analyze = tk.Button(toolbar, text="Analyze", command=lambda: Handlers.analyze(status_bar), bg="#555555", fg="#ffffff", activebackground="#3505ba", activeforeground="#ffffff", font=("Helvetica", 10, "bold")).pack(side=tk.LEFT, padx=1, pady=1)
+btn_analyze = tk.Button(toolbar, text="Analyze", command=lambda: handlers.analyze(status_bar), bg="#555555", fg="#ffffff", activebackground="#3505ba", activeforeground="#ffffff", font=("Helvetica", 10, "bold")).pack(side=tk.LEFT, padx=1, pady=1)
 
 
 toolbar.pack(side=tk.TOP, fill=tk.X)
@@ -181,7 +182,6 @@ status_bar.pack(side=tk.BOTTOM, fill=tk.X)
 # Run main loop
 # ===============================
 root.mainloop()
-# ===============================
 # Run main loop
 # ===============================
 root.mainloop()
